@@ -54,12 +54,22 @@ Expected output:
 */
 
 function getUniqueTags(data) {
+  // Solution 1
   const allTags = data.map((i) => i.tags).flat();
   const uniqTags = [];
   for (let i of allTags) {
     if (!uniqTags.includes(i)) uniqTags.push(i);
   }
   return uniqTags;
+  // Solution 2
+  const uniqueTags = {};
+  return allTags.filter((i) => {
+    if (!uniqueTags[i]) {
+      uniqueTags[i] = true;
+      return true;
+    }
+    return false;
+  });
 }
 
 console.log(getUniqueTags(mediaData));
