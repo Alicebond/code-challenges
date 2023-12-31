@@ -51,3 +51,54 @@ export class ValueError extends Error {
     super("Bank account error");
   }
 }
+
+/*
+Version 2
+Encapsulate the internal representation of the _isActive property
+and provide a more user-friendly interface
+
+export class BankAccount {
+  _isActive = false;
+  accountBalance = 0;
+
+  open() {
+    if (!this.isActive) this.isActive = true;
+    else throw new ValueError('Account is already active');
+    this.accountBalance = 0;
+  }
+
+  close() {
+    if (this.isActive) this.isActive = false;
+    else throw new ValueError('Account is not active');
+  }
+
+  deposit(num) {
+    if (this.isActive && num >= 0) this.accountBalance += num;
+    else throw new ValueError('Account is not active or invalid deposit amount');
+  }
+
+  withdraw(num) {
+    if (this.isActive && this.accountBalance >= num && num >= 0) this.accountBalance -= num;
+    else throw new ValueError('Account is not active or invalid withdrawal amount');
+  }
+
+  get balance() {
+    if (!this.isActive) throw new ValueError('Account is not active');
+    return this.accountBalance;
+  }
+
+  get isActive() {
+    return this._isActive;
+  }
+
+  set isActive(value) {
+    if (value !== this._isActive) this._isActive = value;
+  }
+}
+
+export class ValueError extends Error {
+  constructor(message) {
+    super(message || 'Bank account error');
+  }
+}
+*/
