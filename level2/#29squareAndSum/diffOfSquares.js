@@ -35,3 +35,30 @@ export class Squares {
     return Math.abs(this._sumOfSquares - this._squareOfSum);
   }
 }
+
+// Version 2
+
+export class AnotherSquares {
+  constructor(n) {
+    // n is the final number of a series of numbers to calculate squares for
+    // This is the formula to calculate the sum of squares of n natural numbers
+    this._sumOfSquares = (n * (n + 1) * (2 * n + 1)) / 6;
+
+    // This is the formula to calculate the square of sum of n natural numbers
+    this._squareOfSum = ((n * (n + 1)) / 2) ** 2;
+
+    this._difference = Math.abs(this._sumOfSquares - this._squareOfSum);
+  }
+
+  get sumOfSquares() {
+    return this._sumOfSquares;
+  }
+
+  get squareOfSum() {
+    return this._squareOfSum;
+  }
+
+  get difference() {
+    return this._difference;
+  }
+}
