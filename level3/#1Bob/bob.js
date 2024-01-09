@@ -55,13 +55,12 @@ export const hey = (message) => {
   const isQuestion = (message) => message.trim().endsWith("?");
   const isShouting = (message) =>
     /[a-z]/i.test(message) && message === message.toUpperCase();
-  const isShoutingQuestion = (message) =>
-    isShouting(message) && isQuestion(message);
   const isSilence = (message) => message.trim().length === 0;
 
-  if (isShoutingQuestion(message)) return "Calm down, I know what I'm doing!";
-  else if (isQuestion(message)) return "Sure.";
-  else if (isShouting(message)) return "Whoa, chill out!";
-  else if (isSilence(message)) return "Fine. Be that way!";
-  else return "Whatever.";
+  if (isShouting(message) && isQuestion(message))
+    return "Calm down, I know what I'm doing!";
+  if (isQuestion(message)) return "Sure.";
+  if (isShouting(message)) return "Whoa, chill out!";
+  if (isSilence(message)) return "Fine. Be that way!";
+  return "Whatever.";
 };
