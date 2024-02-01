@@ -3,7 +3,7 @@ const binarySearchWithArraySplitting = (array, target) => {
   const middle = Math.floor(array.length / 2);
   if (array[middle] === element) return middle;
   const [left, right] =
-    array[middle] > element ? [middle + 1, right] : [0, middle - 1];
+    array[middle] > element ? [0, middle - 1] : [middle + 1, right];
   const subIndex = binarySearchWithArraySplitting(
     array.slice(left, right),
     element,
