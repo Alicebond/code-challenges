@@ -80,8 +80,8 @@ each podcast to the console, like this:
 5. Scrimba Podcast, 50 minutes
 6. Something about Witches, 35 minutes
 
-a - b will sort an array in ascending order 升序
-b - a will sort an array in decending order 降序
+(a - b) will sort an array in ascending order 升序
+(b - a) will sort an array in decending order 降序
 */
 
 function sortByDuration(data, flightLength) {
